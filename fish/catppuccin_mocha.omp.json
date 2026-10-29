@@ -1,0 +1,167 @@
+{
+   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+   "blocks": [
+      {
+         "alignment": "left",
+         "segments": [
+            {
+               "foreground": "p:box",
+               "style": "plain",
+               "template": "┌ ",
+               "type": "text"
+            },
+            {
+               "foreground": "p:mauve",
+               "properties": {
+                  "home_icon": "~",
+                  "style": "folder"
+               },
+               "style": "plain",
+               "template": "{{ .Path }} ",
+               "type": "path"
+            },
+            {
+               "foreground": "p:lavender",
+               "properties": {
+                  "fetch_status": true,
+                  "fetch_upstream_icon": true,
+                  "mapped_branches": {
+                     "bug/*": "🐛 ",
+                     "feat/*": "🚀 "
+                  },
+                  "source": "cli"
+               },
+               "style": "plain",
+               "template": "{{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ else }}git{{ end }}:<p:text,>(</><p:red>{{ abbrev 23 .HEAD }}</><p:text,>)</>{{if .BranchStatus }}<p:text,>{{ \"{\" }}</>{{ .BranchStatus }}<p:text,>{{ \"}\" }}</>{{ end }}{{ if .Working.Changed }} <p:green,> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} <p:subtext,>|</>{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+               "type": "git"
+            },
+            {
+               "foreground": "p:flamingo",
+               "style": "plain",
+               "template": " <p:text,>[</>{{.Full}}<p:text,>]</>",
+               "type": "bun"
+            },
+            {
+               "foreground": "p:green",
+               "foreground_templates": [
+                  "{{ if (eq .PackageManagerName \"pnpm\") }}p:yellow{{ end }}",
+                  "{{ if (eq .PackageManagerName \"yarn\") }}p:blue{{ end }}",
+                  "{{ if (eq .PackageManagerName \"npm\") }}p:green{{ end }}"
+               ],
+               "properties": {
+                  "fetch_package_manager": true
+               },
+               "style": "plain",
+               "template": "{{ if .Segments.Contains \"Bun\" }}{{ else }}<p:green,> <p:text,>[</>{{ .Full }}<p:text,>]</></>{{ if .PackageManagerIcon }}<p:text,><b>→</b></> {{ .PackageManagerIcon }} {{ end }} {{ end }}",
+               "type": "node"
+            },
+            {
+               "foreground": "p:yellow",
+               "properties": {
+                  "display_mode": "context"
+               },
+               "style": "plain",
+               "template": " <p:text,>[</>{{ .Full }}<p:text,>]</> {{ if .Venv }}({{ .Venv }}) {{ end }}",
+               "type": "python"
+            },
+            {
+               "foreground": "p:blue",
+               "style": "plain",
+               "template": " <p:text,>[</>{{ .Full }}<p:text,>]</>",
+               "type": "go"
+            }
+         ],
+         "type": "prompt"
+      },
+      {
+         "alignment": "right",
+         "segments": [
+            {
+               "foreground": "p:blue",
+               "style": "plain",
+               "template": "{{ .Name }}",
+               "type": "shell"
+            },
+            {
+               "foreground": "p:red",
+               "style": "plain",
+               "template": " <p:subtext,>as</> root",
+               "type": "root"
+            },
+            {
+               "foreground": "p:green",
+               "foreground_templates": [
+                  "{{ if lt .Ms 5000 }}p:green{{ else if lt .Ms 60000 }}p:peach{{ else }}p:red{{ end }}"
+               ],
+               "properties": {
+                  "always_enabled": true
+               },
+               "style": "plain",
+               "template": " <p:subtext,>|</>  {{ .FormattedMs }}",
+               "type": "executiontime"
+            }
+         ],
+         "type": "prompt"
+      },
+      {
+         "alignment": "left",
+         "newline": true,
+         "segments": [
+            {
+               "foreground": "p:box",
+               "style": "plain",
+               "template": "└ ",
+               "type": "text"
+            },
+            {
+               "foreground": "p:os",
+               "style": "plain",
+               "template": "{{.Icon}} {{ if .WSL }}<d><p:text,>󰻀 </></d>{{ end }}",
+               "type": "os"
+            },
+            {
+               "foreground": "p:blue",
+               "style": "plain",
+               "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} ",
+               "type": "session"
+            },
+            {
+               "foreground": "p:closer",
+               "style": "plain",
+               "template": "",
+               "type": "text"
+            }
+         ],
+         "type": "prompt"
+      }
+   ],
+   "final_space": true,
+   "palette": {
+      "blue": "#89b4fa",
+      "box": "#bcc0cc",
+      "closer": "p:os",
+      "flamingo": "#f2cdcd",
+      "green": "#a6e3a1",
+      "lavender": "#b4befe",
+      "maroon": "#eba0ac",
+      "mauve": "#cba6f7",
+      "os": "#acb0be",
+      "peach": "#fab387",
+      "pink": "#f5c2e7",
+      "red": "#f38ba8",
+      "rosewater": "#f5e0dc",
+      "sapphire": "#74c7ec",
+      "sky": "#89dceb",
+      "subtext": "#585b70",
+      "teal": "#94e2d5",
+      "text": "#cdd6f4",
+      "yellow": "#f9e2af"
+   },
+   "pwd": "osc99",
+   "secondary_prompt": {
+      "foreground": "p:closer",
+      "style": "plain",
+      "template": " "
+   },
+   "version": 3
+}
