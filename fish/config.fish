@@ -120,7 +120,6 @@ if status is-interactive
     end
 end
 
-alias btop "btop --force-utf"
 abbr vim "nvim"
 abbr yoink "git pull"
 abbr yeet "git push"

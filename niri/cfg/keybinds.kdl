@@ -10,7 +10,7 @@ binds {
     Mod+V      repeat=false                      { spawn-sh "vicinae vicinae://launch/clipboard/history"; }
     Mod+Period repeat=false                      { spawn-sh "vicinae vicinae://launch/core/search-emojis"; }
 
-    Mod+SHIFT+C                                  { spawn-sh "hyprpicker -a"; }
+    Mod+CTRL+C                                  { spawn-sh "hyprpicker -als 3"; }
 
     // ─── Applications ───
     Mod+Space repeat=false                       { spawn-sh "vicinae toggle"; }
@@ -37,6 +37,8 @@ binds {
     // ─── Brightness Controls ───
     XF86MonBrightnessUp allow-when-locked=true   { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+
+    XF86TouchpadToggle                           { toggle-touchpad; }
 
     // ─── Window Movement and Focus ───
     Mod+Q                                        { close-window; }
@@ -67,6 +69,9 @@ binds {
 
     Mod+SHIFT+N                                  { move-column-to-workspace-down; }
     Mod+SHIFT+P                                  { move-column-to-workspace-up; }
+
+    Mod+CTRL+N                                   { move-workspace-down; }
+    Mod+CTRL+P                                   { move-workspace-up; }
 
     Mod+1                                        { focus-workspace 1; }
     Mod+2                                        { focus-workspace 2; }
@@ -102,8 +107,8 @@ binds {
     Mod+SHIFT+CTRL+UP                            { move-column-to-monitor-up; }
     Mod+SHIFT+CTRL+Down                          { move-column-to-monitor-down; }
 
-    Mod+CTRL+F                                   { expand-column-to-available-width; }
-    Mod+CTRL+C                                   { center-column; }
+    Mod+SHIFT+F                                   { expand-column-to-available-width; }
+    Mod+SHIFT+C                                   { center-column; }
     Mod+Minus                                    { set-column-width "-5%"; }
     Mod+Equal                                    { set-column-width "+5%"; }
     Mod+SHIFT+Minus                              { set-window-height "-5%"; }
@@ -128,6 +133,6 @@ binds {
 
     // ─── Exit / Power ───
     CTRL+ALT+Delete                              { quit; }
-    Mod+CTRL+P                                   { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
+    Mod+SHIFT+CTRL+P                             { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
     Mod+O repeat=false                           { toggle-overview; }
 }

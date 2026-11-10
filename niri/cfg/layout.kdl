@@ -4,6 +4,7 @@ layout {
     center-focused-column "never" // Don’t auto-center focused column
 
     background-color "transparent" // <- needed for noctalia-shell to set wallpaper
+    fullscreen-backdrop-color "transparent" // <- needed for transparent apps in fullscreen
 
     focus-ring {
         width 3
