@@ -14,7 +14,7 @@ binds {
 
     // ─── Applications ───
     Mod+Space repeat=false                       { spawn-sh "vicinae toggle"; }
-    Mod+E                                        hotkey-overlay-title="Open File Manager: Nautilus" { spawn-sh "nautilus"; }
+    Mod+E                                        hotkey-overlay-title="Open File Manager: Nautilus" { spawn-sh "nautilus -w"; }
     Mod+Return                                   hotkey-overlay-title="Open Terminal: Ghostty" { spawn-sh "ghostty"; }
     Mod+CTRL+Return                              hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+B                                        hotkey-overlay-title="Open Browser: chrome" { spawn-sh "google-chrome-stable"; }
@@ -38,7 +38,7 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true   { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
-    XF86TouchpadToggle                           { toggle-touchpad; }
+	 XF86TouchpadToggle                           { toggle-touchpad; }
 
     // ─── Window Movement and Focus ───
     Mod+Q                                        { close-window; }
